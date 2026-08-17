@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Administración | Suspiros del Alma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="admin-body">
+  <aside class="admin-sidebar">
+    <a class="brand admin-brand" href="index.html">
+      <img src="assets/logo-suspiros.jpg" alt="">
+      <span><strong>Suspiros del Alma</strong><small>Panel de gestión · DEMO local</small></span>
+    </a>
+    <nav>
+      <button class="active" data-admin-view="dashboard">▦ Dashboard</button>
+      <button data-admin-view="productos">◈ Productos</button>
+      <button data-admin-view="inventario">▤ Inventario</button>
+      <button data-admin-view="pedidos">⌁ Pedidos</button>
+      <button data-admin-view="clientes">♙ Clientes</button>
+      <button data-admin-view="compras">⇣ Compras</button>
+      <button data-admin-view="gastos">$ Gastos</button>
+      <button data-admin-view="informes">⌁ Informes</button>
+    </nav>
+    <a class="admin-store-link" href="index.html">← Ver tienda pública</a>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-warning">
+      <strong>Versión 1:</strong> este panel es una maqueta funcional local. No ingreses todavía datos privados de clientes.
+      La base segura y el acceso con el correo administrador se conectarán en la siguiente etapa.
+    </div>
+
+    <header class="admin-top">
+      <div><span class="eyebrow">Administración</span><h1 id="adminTitle">Resumen del negocio</h1></div>
+      <div class="admin-user"><div class="avatar">PS</div><span>Administradora</span></div>
+    </header>
+
+    <section class="admin-view active" id="view-dashboard">
+      <div class="stat-grid">
+        <article><small>Productos cargados</small><strong id="statProducts">0</strong><span>catálogo actual</span></article>
+        <article><small>Stock total</small><strong id="statStock">0</strong><span>unidades</span></article>
+        <article><small>Stock bajo</small><strong id="statLow">0</strong><span>requieren atención</span></article>
+        <article><small>Mercadería valorizada</small><strong id="statValue">$ 0</strong><span>a costo</span></article>
+      </div>
+      <div class="admin-grid">
+        <section class="admin-card">
+          <div class="card-title"><h2>Alertas de stock</h2><span>Reposición sugerida</span></div>
+          <div id="lowStockList"></div>
+        </section>
+        <section class="admin-card">
+          <div class="card-title"><h2>Próximos pasos</h2></div>
+          <ul class="task-list">
+            <li>Importar el inventario inicial de WhatsApp.</li>
+            <li>Cargar costos y precios actuales.</li>
+            <li>Definir mínimos de stock por producto.</li>
+            <li>Conectar base segura para pedidos y clientes.</li>
+            <li>Configurar comunicaciones con consentimiento.</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <section class="admin-view" id="view-productos">
+      <div class="admin-card">
+        <div class="card-title">
+          <div><h2>Productos</h2><span>Edición local para preparar el catálogo</span></div>
+          <button class="btn primary small" id="downloadCsv">Descargar CSV</button>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead><tr><th>Producto</th><th>Marca</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Estado</th></tr></thead>
+            <tbody id="adminProductRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-view" id="view-inventario">
+      <div class="admin-card">
+        <div class="card-title"><h2>Inventario</h2><span>Stock físico, mínimo y valorización</span></div>
+        <div id="inventorySummary"></div>
+      </div>
+    </section>
+
+    <section class="admin-view" id="view-pedidos"><div class="admin-card empty-admin"><h2>Pedidos</h2><p>Se activará al conectar la base de datos. Permitirá estados: pendiente, señado, pagado, preparado, entregado y cancelado.</p></div></section>
+    <section class="admin-view" id="view-clientes"><div class="admin-card empty-admin"><h2>Clientes</h2><p>Se activará con almacenamiento seguro. Incluirá historial de compras, preferencias y consentimiento para recibir novedades.</p></div></section>
+    <section class="admin-view" id="view-compras"><div class="admin-card empty-admin"><h2>Compras a proveedores</h2><p>Registrará costo, proveedor, fecha, cantidades y actualización del inventario.</p></div></section>
+    <section class="admin-view" id="view-gastos"><div class="admin-card empty-admin"><h2>Gastos</h2><p>Permitirá registrar envíos, embalaje, publicidad y otros gastos para calcular rentabilidad real.</p></div></section>
+    <section class="admin-view" id="view-informes"><div class="admin-card empty-admin"><h2>Informes</h2><p>Ventas por mes, margen, productos más vendidos, recurrencia de clientes, capital inmovilizado y sugerencias de reposición.</p></div></section>
+  </main>
+
+  <script src="data/products.js"></script>
+  <script src="assets/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Suspiros del Alma: sahumerios, aromas, hornillos, cascadas, velas, accesorios y bienestar. Envíos a todo el país.">
+  <title>Suspiros del Alma | Tienda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="topbar">
+    Envíos a todo el país · Punto de encuentro en Estación Longchamps · Atención por WhatsApp
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Suspiros del Alma">
+      <img src="assets/logo-suspiros.jpg" alt="Logo Suspiros del Alma">
+      <span>
+        <strong>Suspiros del Alma</strong>
+        <small>aromas · rituales · bienestar</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+    <nav id="mainNav">
+      <a href="#productos">Productos</a>
+      <a href="#novedades">Novedades</a>
+      <a href="#ofertas">Ofertas</a>
+      <a href="#mayoristas">Mayoristas</a>
+      <a href="#nosotros">Quiénes somos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <button class="cart-button" id="openCart" aria-label="Abrir carrito">
+      🛒 <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-pattern pattern-one"></div>
+      <div class="hero-copy">
+        <span class="eyebrow">Aromas que transforman espacios</span>
+        <h1>Pequeños rituales para acompañar cada momento.</h1>
+        <p>
+          Sahumerios, cascadas, hornillos, velas, aceites, accesorios y objetos elegidos
+          para crear una pausa, renovar un ambiente o encontrar un regalo especial.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#productos">Ver productos</a>
+          <a class="btn secondary" href="https://wa.me/5491139384518?text=Hola%20Suspiros%20del%20Alma,%20quiero%20consultar%20por%20sus%20productos." target="_blank" rel="noopener">Comprar por WhatsApp</a>
+        </div>
+        <div class="hero-trust">
+          <span>✓ Venta minorista</span>
+          <span>✓ Revendedores</span>
+          <span>✓ Envíos nacionales</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-orbit"></div>
+        <img src="assets/logo-suspiros.jpg" alt="Mano de Fátima - Suspiros del Alma">
+        <p>Una selección inspirada en aromas, calma, energía y bienestar cotidiano.</p>
+      </div>
+    </section>
+
+    <section class="category-section">
+      <div class="section-heading">
+        <span class="eyebrow">Explorá por categoría</span>
+        <h2>Encontrá lo que estás buscando</h2>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </section>
+
+    <section class="shop-section" id="productos">
+      <div class="section-heading left">
+        <div>
+          <span class="eyebrow">Catálogo</span>
+          <h2>Nuestros productos</h2>
+        </div>
+        <p id="resultCount"></p>
+      </div>
+
+      <div class="shop-toolbar">
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Buscar producto, marca, aroma...">
+        </label>
+
+        <select id="categoryFilter" aria-label="Filtrar por categoría">
+          <option value="">Todas las categorías</option>
+        </select>
+        <select id="brandFilter" aria-label="Filtrar por marca">
+          <option value="">Todas las marcas</option>
+        </select>
+        <select id="sortFilter" aria-label="Ordenar productos">
+          <option value="featured">Destacados</option>
+          <option value="newest">Novedades</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="name">Nombre</option>
+        </select>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state hidden" id="emptyState">
+        <h3>No encontramos productos con esos filtros</h3>
+        <p>Probá quitando algún filtro o escribiendo otra búsqueda.</p>
+      </div>
+    </section>
+
+    <section class="feature-banner" id="novedades">
+      <div>
+        <span class="eyebrow">Nuevo en Suspiros del Alma</span>
+        <h2>Piedra de alumbre</h2>
+        <p>
+          Desodorante mineral de uso externo. Una propuesta simple y de larga duración que
+          se incorpora a nuestra línea de bienestar cotidiano.
+        </p>
+        <a class="btn primary" href="producto.html?id=piedra-alumbre">Conocer el producto</a>
+      </div>
+      <div class="mineral-art" aria-hidden="true">
+        <div class="crystal c1"></div>
+        <div class="crystal c2"></div>
+        <div class="crystal c3"></div>
+      </div>
+    </section>
+
+    <section class="highlight-section" id="ofertas">
+      <div class="section-heading">
+        <span class="eyebrow">Elegidos por nuestra comunidad</span>
+        <h2>Ofertas, combos y recomendados</h2>
+      </div>
+      <div class="highlight-grid">
+        <article>
+          <span>✦</span>
+          <h3>Combos para regalar</h3>
+          <p>Armamos propuestas con productos que se complementan entre sí.</p>
+        </article>
+        <article>
+          <span>☾</span>
+          <h3>Productos recomendados</h3>
+          <p>Una selección para descubrir aromas y objetos nuevos.</p>
+        </article>
+        <article>
+          <span>✧</span>
+          <h3>Ofertas especiales</h3>
+          <p>Encontrá oportunidades y promociones vigentes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wholesale" id="mayoristas">
+      <div>
+        <span class="eyebrow">Mayoristas y revendedores</span>
+        <h2>¿Querés empezar o hacer crecer tu emprendimiento?</h2>
+        <p>
+          Consultanos por compras mayoristas, combos de inicio y productos para reventa.
+          Podemos ayudarte a armar una selección de acuerdo con tu presupuesto.
+        </p>
+      </div>
+      <a class="btn light" href="https://wa.me/5491139384518?text=Hola%20Suspiros%20del%20Alma,%20quiero%20informaci%C3%B3n%20para%20revendedores." target="_blank" rel="noopener">
+        Consultar para revender
+      </a>
+    </section>
+
+    <section class="story" id="nosotros">
+      <div class="story-image">
+        <img src="assets/logo-suspiros.jpg" alt="Suspiros del Alma">
+      </div>
+      <div>
+        <span class="eyebrow">Quiénes somos</span>
+        <h2>Una tienda nacida para compartir objetos que acompañan.</h2>
+        <p>
+          Suspiros del Alma reúne aromas, accesorios y productos elegidos para convertir
+          los momentos cotidianos en pequeñas experiencias. Buscamos ofrecer variedad,
+          atención cercana y opciones tanto para quienes compran para sí mismos como para
+          quienes quieren emprender.
+        </p>
+        <p>
+          Esta historia recién empieza en la web: nuestro catálogo seguirá creciendo con
+          novedades, recomendaciones, artículos y propuestas especiales.
+        </p>
+      </div>
+    </section>
+
+    <section class="how-to">
+      <div class="section-heading">
+        <span class="eyebrow">Cómo comprar</span>
+        <h2>Simple, claro y acompañado</h2>
+      </div>
+      <div class="steps">
+        <article><b>1</b><h3>Elegí</h3><p>Buscá, filtrá y agregá productos al carrito.</p></article>
+        <article><b>2</b><h3>Coordiná</h3><p>Elegí forma de entrega y pago.</p></article>
+        <article><b>3</b><h3>Confirmá</h3><p>Enviá el pedido armado por WhatsApp.</p></article>
+        <article><b>4</b><h3>Recibí</h3><p>Coordinamos el envío o punto de encuentro.</p></article>
+      </div>
+    </section>
+
+    <section class="info-grid">
+      <article>
+        <h3>🚚 Envíos</h3>
+        <p>Correo Argentino a todo el país, moto envío según zona y punto de encuentro en Estación Longchamps.</p>
+      </article>
+      <article>
+        <h3>💳 Medios de pago</h3>
+        <p>Efectivo, transferencia y Mercado Pago. La modalidad se confirma al finalizar el pedido.</p>
+      </article>
+      <article>
+        <h3>💬 Atención personalizada</h3>
+        <p>Podés consultar cualquier producto por WhatsApp antes de comprar.</p>
+      </article>
+    </section>
+
+    <section class="newsletter" id="contacto">
+      <div>
+        <span class="eyebrow">Novedades y promociones</span>
+        <h2>Enterate cuando llegan productos nuevos</h2>
+        <p>Próximamente vas a poder suscribirte para recibir novedades y ofertas.</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/suspirosdelalma._/" target="_blank" rel="noopener">Instagram @suspirosdelalma._</a>
+        <a href="https://www.tiktok.com/@suspiros.del.alma3" target="_blank" rel="noopener">TikTok @suspiros.del.alma3</a>
+        <a href="https://wa.me/5491139384518" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">
+      <img src="assets/logo-suspiros.jpg" alt="">
+      <div><strong>Suspiros del Alma</strong><small>Buenos Aires · Argentina</small></div>
+    </div>
+    <p>© <span id="year"></span> Suspiros del Alma. Todos los derechos reservados.</p>
+    <a href="admin.html" class="admin-link">Administración</a>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5491139384518?text=Hola%20Suspiros%20del%20Alma,%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span>WhatsApp</span> 💬
+  </a>
+
+  <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div class="cart-header">
+      <div><span class="eyebrow">Tu selección</span><h2>Carrito</h2></div>
+      <button id="closeCart" aria-label="Cerrar">×</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div id="cartEmpty" class="cart-empty">
+      <p>Tu carrito está vacío.</p>
+      <button class="btn secondary" id="keepShopping">Seguir mirando</button>
+    </div>
+    <div class="cart-checkout" id="cartCheckout">
+      <label>Forma de entrega
+        <select id="shippingMethod">
+          <option value="Correo Argentino">Correo Argentino — costo a confirmar</option>
+          <option value="Moto envío">Moto envío — costo a confirmar</option>
+          <option value="Estación Longchamps">Punto de encuentro — Estación Longchamps</option>
+        </select>
+      </label>
+      <label>Forma de pago
+        <select id="paymentMethod">
+          <option value="Transferencia">Transferencia</option>
+          <option value="Mercado Pago">Mercado Pago</option>
+          <option value="Efectivo">Efectivo</option>
+        </select>
+      </label>
+      <div class="cart-total"><span>Subtotal</span><strong id="cartTotal">$ 0</strong></div>
+      <small>El costo de envío, si corresponde, se confirma antes del pago.</small>
+      <button class="btn primary full" id="checkoutWhatsApp">Enviar pedido por WhatsApp</button>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <script src="data/products.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

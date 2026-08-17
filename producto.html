@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Producto | Suspiros del Alma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="topbar">Envíos a todo el país · Atención por WhatsApp</div>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-suspiros.jpg" alt="Logo Suspiros del Alma">
+      <span><strong>Suspiros del Alma</strong><small>aromas · rituales · bienestar</small></span>
+    </a>
+    <nav><a href="index.html#productos">Volver al catálogo</a></nav>
+    <button class="cart-button" id="openCart">🛒 <span id="cartCount">0</span></button>
+  </header>
+
+  <main class="product-page" id="productPage"></main>
+
+  <section class="related-section">
+    <div class="section-heading left">
+      <div><span class="eyebrow">También podría gustarte</span><h2>Productos relacionados</h2></div>
+    </div>
+    <div class="product-grid" id="relatedGrid"></div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">
+      <img src="assets/logo-suspiros.jpg" alt="">
+      <div><strong>Suspiros del Alma</strong><small>Buenos Aires · Argentina</small></div>
+    </div>
+    <a href="index.html">Volver a la tienda</a>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5491139384518" target="_blank" rel="noopener"><span>WhatsApp</span> 💬</a>
+
+  <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div class="cart-header"><div><span class="eyebrow">Tu selección</span><h2>Carrito</h2></div><button id="closeCart">×</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div id="cartEmpty" class="cart-empty"><p>Tu carrito está vacío.</p><a class="btn secondary" href="index.html#productos">Seguir mirando</a></div>
+    <div class="cart-checkout" id="cartCheckout">
+      <label>Forma de entrega<select id="shippingMethod"><option>Correo Argentino</option><option>Moto envío</option><option>Estación Longchamps</option></select></label>
+      <label>Forma de pago<select id="paymentMethod"><option>Transferencia</option><option>Mercado Pago</option><option>Efectivo</option></select></label>
+      <div class="cart-total"><span>Subtotal</span><strong id="cartTotal">$ 0</strong></div>
+      <button class="btn primary full" id="checkoutWhatsApp">Enviar pedido por WhatsApp</button>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <script src="data/products.js"></script>
+  <script src="assets/app.js"></script>
+  <script src="assets/producto.js"></script>
+</body>
+</html>
