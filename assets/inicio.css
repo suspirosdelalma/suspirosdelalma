@@ -1,0 +1,181 @@
+/* =========================================================
+   SUSPIROS DEL ALMA — AJUSTE DE PORTADA / HERO v3
+   Se carga DESPUÉS de styles.css y sólo redefine el inicio.
+   ========================================================= */
+
+/* Escritorio */
+@media (min-width: 1001px) {
+  .hero {
+    min-height: 520px;
+    grid-template-columns: minmax(300px, 390px) minmax(480px, 650px);
+    grid-template-areas: "visual copy";
+    justify-content: center;
+    align-items: center;
+    column-gap: clamp(60px, 7vw, 115px);
+    padding: 55px clamp(36px, 6vw, 100px) 62px;
+  }
+
+  .hero-copy {
+    grid-area: copy;
+    align-self: center;
+    max-width: 650px;
+  }
+
+  .hero-card {
+    grid-area: visual;
+    justify-self: center;
+    align-self: center;
+    width: min(100%, 365px);
+    max-width: 365px;
+    padding: 28px;
+    border-radius: 32px;
+    background: rgba(255,255,255,.82);
+  }
+
+  .hero-card img {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .hero-card-orbit {
+    inset: -14px;
+    opacity: .75;
+  }
+
+  .hero-card p {
+    margin: 15px auto 0;
+    max-width: 290px;
+    line-height: 1.55;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 4.3vw, 66px);
+    line-height: .98;
+    max-width: 650px;
+    margin: 14px 0 18px;
+    letter-spacing: -.015em;
+  }
+
+  .hero p {
+    margin: 0;
+    max-width: 610px;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    margin-top: 24px;
+  }
+
+  .hero-trust {
+    margin-top: 18px;
+    gap: 16px;
+  }
+
+  .hero:before {
+    width: 340px;
+    height: 340px;
+    right: -120px;
+    top: -125px;
+  }
+
+  .hero:after {
+    width: 205px;
+    height: 205px;
+    left: -80px;
+    bottom: -75px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "visual";
+    min-height: auto;
+    gap: 42px;
+    padding: 54px clamp(24px, 7vw, 60px) 60px;
+  }
+
+  .hero-copy {
+    grid-area: copy;
+    max-width: 720px;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .hero-card {
+    grid-area: visual;
+    justify-self: center;
+    width: min(100%, 350px);
+    max-width: 350px;
+    padding: 27px;
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 7vw, 60px);
+    line-height: 1;
+    margin: 14px auto 18px;
+    max-width: 700px;
+  }
+
+  .hero p {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions,
+  .hero-trust {
+    justify-content: center;
+  }
+}
+
+/* Celular */
+@media (max-width: 650px) {
+  .hero {
+    gap: 30px;
+    padding: 38px 20px 46px;
+  }
+
+  .hero-copy {
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: clamp(39px, 11vw, 49px);
+    line-height: 1;
+    margin: 12px 0 16px;
+  }
+
+  .hero p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .hero-actions,
+  .hero-trust {
+    justify-content: flex-start;
+  }
+
+  .hero-actions {
+    margin-top: 21px;
+  }
+
+  .hero-trust {
+    margin-top: 16px;
+    gap: 10px 15px;
+  }
+
+  .hero-card {
+    width: min(100%, 300px);
+    padding: 20px;
+    border-radius: 27px;
+  }
+
+  .hero-card-orbit {
+    inset: -10px;
+  }
+}
