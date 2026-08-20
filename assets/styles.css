@@ -188,7 +188,7 @@ h3 {
 }
 
 .hero h1 {
-  font-size: clamp(49px, 6vw, 82px);
+  font-size: clamp(20px, 6vw, 40px);
   line-height: .94;
   max-width: 780px;
   margin: 18px 0 22px;
@@ -1393,7 +1393,7 @@ footer {
   }
 
   .hero h1 {
-    font-size: 50px
+    font-size: 20px
   }
 
   .hero-card {
