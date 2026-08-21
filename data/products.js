@@ -351,7 +351,7 @@ window.addEventListener('load', () => {
 
     const start = () => {
       if (timers.has(card)) return;
-      const timer = window.setInterval(advance, 3200 + Math.floor(Math.random() * 900));
+      const timer = window.setInterval(advance, 2000);
       timers.set(card, timer);
     };
     const stop = () => {
@@ -562,7 +562,7 @@ window.addEventListener('load', () => {
   thumbs.forEach(t => t.addEventListener('click', () => show(Number(t.dataset.index))));
 
   if (!reducedMotion) {
-    const start = () => { if (!timer) timer = window.setInterval(() => { if (!paused) show(index + 1); }, 4500); };
+    const start = () => { if (!timer) timer = window.setInterval(() => { if (!paused) show(index + 1); }, 2000); };
     const stop = () => { if (timer) window.clearInterval(timer); timer = null; };
     container.addEventListener('mouseenter', () => { paused = true; });
     container.addEventListener('mouseleave', () => { paused = false; });
