@@ -19,6 +19,12 @@ window.SDA_APP_READY = (async () => {
   };
   const stockClass = p => p?.stock === 0 ? "out" : "";
 
+  const normalizeText = value => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  function productHaystack(p){
+    return normalizeText([p.name,p.brand,p.primaryCategory,p.short,p.description,p.tags,p.aroma,p.material,p.usage,...(p.categories||[]),...(p.variants||[])].join(" "));
+  }
+
+
   const categories = [...new Set(PRODUCTS.flatMap(p=>p.categories||[]))].sort((a,b)=>a.localeCompare(b,"es"));
   const primaryCategories = [...new Set(PRODUCTS.map(p=>p.primaryCategory).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));
   const brands = [...new Set(PRODUCTS.map(p=>p.brand).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));
@@ -46,7 +52,7 @@ window.SDA_APP_READY = (async () => {
         <div class="stock-status ${stockClass(p)}">${stockText(p)}</div>
         <div class="product-actions">
           <button class="btn primary add-cart" data-id="${p.id}" ${!canAdd(p)?'disabled title="Sin stock"':''}>Agregar</button>
-          <a class="icon-btn" href="https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent('Hola Suspiros del Alma, quiero consultar por: '+p.name)}" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
+          <a class="icon-btn" href="https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent('Hola Suspiros del Alma, estuve mirando '+p.name+' y me gustaría que me ayuden a elegir o confirmar si es para mí.')}" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
         </div>
       </div>
     </article>`;
@@ -148,7 +154,57 @@ window.SDA_APP_READY = (async () => {
     window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`,"_blank");
   }
 
+  function renderCurated(){
+    const mount=(selector,items)=>{
+      const grid=$(selector); if(!grid) return;
+      const unique=[...new Map(items.map(p=>[p.id,p])).values()].slice(0,4);
+      grid.innerHTML=unique.map(productCard).join("");
+      grid.querySelectorAll(".add-cart").forEach(btn=>btn.addEventListener("click",()=>addToCart(btn.dataset.id)));
+    };
+    const available=PRODUCTS.filter(p=>p.stock!==0);
+    const featured=available.filter(p=>p.featured);
+    const combos=available.filter(p=>p.combo || normalizeText(p.primaryCategory).includes("combo"));
+    const newest=available.filter(p=>p.new);
+    mount("#featuredGrid", featured.length?featured:available);
+    mount("#comboGrid", combos.length?combos:available.filter(p=>productHaystack(p).includes("regalo")));
+    mount("#newGrid", newest.length?newest:[...available].reverse());
+  }
+
+  function bindNeedNavigation(){
+    const normalizeCategory = value => String(value || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim();
+
+    const findCategorySection = category => {
+      const wanted = normalizeCategory(category);
+      return [...document.querySelectorAll('.category-showcase[data-category]')]
+        .find(section => normalizeCategory(section.dataset.category) === wanted);
+    };
+
+    const goToCategory = category => {
+      const section = findCategorySection(category);
+      if (!section) return false;
+      const headerOffset = 105;
+      const y = section.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({top: Math.max(0,y), behavior:'smooth'});
+      return true;
+    };
+
+    document.querySelectorAll('[data-need-category]').forEach(card => {
+      card.addEventListener('click', () => {
+        const category = card.dataset.needCategory;
+        if (goToCategory(category)) return;
+        window.setTimeout(() => goToCategory(category), 450);
+      });
+    });
+  }
+
   renderCart();
+  renderCurated();
+  bindNeedNavigation();
   if($("#categoryGrid")){renderCategories();fillFilters();filterProducts();}
   ["#searchInput","#categoryFilter","#brandFilter","#sortFilter"].forEach(s=>$(s)?.addEventListener("input",filterProducts));
   $("#openCart")?.addEventListener("click",openCart);$("#closeCart")?.addEventListener("click",closeCart);
