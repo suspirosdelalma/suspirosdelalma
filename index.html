@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="stylesheet" href="assets/inicio.css?v=3">
-  <link rel="stylesheet" href="assets/conversion.css?v=1">
 </head>
 <body>
   <div class="topbar">
@@ -32,7 +31,7 @@
     <nav id="mainNav">
       <a href="#productos">Productos</a>
       <a href="#novedades">Novedades</a>
-      <a href="#ofertas">Elegidos</a>
+      <a href="#ofertas">Ofertas</a>
       <a href="#mayoristas">Mayoristas</a>
       <a href="#nosotros">Quiénes somos</a>
       <a href="#contacto">Contacto</a>
@@ -54,8 +53,8 @@
           para crear una pausa, renovar un ambiente o encontrar un regalo especial.
         </p>
         <div class="hero-actions">
-          <a class="btn primary" href="#necesitas">Ayudame a elegir</a>
-          <a class="btn secondary" href="https://wa.me/5491139384518?text=Hola%20Suspiros%20del%20Alma,%20estuve%20mirando%20la%20tienda%20y%20me%20gustar%C3%ADa%20que%20me%20ayuden%20a%20elegir." target="_blank" rel="noopener">Hablar por WhatsApp</a>
+          <a class="btn primary" href="#productos">Ver productos</a>
+          <a class="btn secondary" href="https://wa.me/5491139384518?text=Hola%20Suspiros%20del%20Alma,%20quiero%20consultar%20por%20sus%20productos." target="_blank" rel="noopener">Comprar por WhatsApp</a>
         </div>
         <div class="hero-trust">
           <span>✓ Venta minorista</span>
@@ -70,19 +69,27 @@
       </div>
     </section>
 
+
     <section class="intent-section" id="necesitas">
       <div class="section-heading">
-        <span class="eyebrow">Empezá por vos</span>
+        <span class="eyebrow">Empezá por lo que buscás</span>
         <h2>¿Qué necesitás hoy?</h2>
-        <p>No hace falta que sepas qué producto elegir. Empezá por el momento que querés acompañar y te mostramos algunas opciones.</p>
+        <p class="section-lead">Elegí una opción y te llevamos directamente a esa colección. Desde allí podés seguir recorriendo toda la tienda con libertad.</p>
       </div>
-      <div class="intent-grid">
-        <button class="intent-card" type="button" data-intent="calma"><span>🌿</span><strong>Calma y relajación</strong></button>
-        <button class="intent-card" type="button" data-intent="limpieza"><span>✨</span><strong>Limpieza y protección</strong></button>
-        <button class="intent-card" type="button" data-intent="abundancia"><span>💛</span><strong>Abundancia</strong></button>
-        <button class="intent-card" type="button" data-intent="amor"><span>💗</span><strong>Amor y armonía</strong></button>
-        <button class="intent-card" type="button" data-intent="momento"><span>🌙</span><strong>Un momento para mí</strong></button>
-        <button class="intent-card" type="button" data-intent="regalo"><span>🎁</span><strong>Quiero hacer un regalo</strong></button>
+      <div class="intent-grid" id="intentGrid">
+        <button class="intent-card" type="button" data-need-category="Sahumerios Artesanales"><span>🌿</span><strong>¿Querés llenar tu casa de aroma?</strong><small>Sahumerios artesanales</small></button>
+        <button class="intent-card" type="button" data-need-category="Aromanza"><span>✨</span><strong>¿Buscás algo especial para tus rituales?</strong><small>Aromanza</small></button>
+        <button class="intent-card" type="button" data-need-category="Sagrada Madre"><span>🔥</span><strong>¿Querés hacer una limpieza profunda?</strong><small>Sagrada Madre</small></button>
+        <button class="intent-card" type="button" data-need-category="Sahumerios importados"><span>🌏</span><strong>¿Querés descubrir nuevos aromas?</strong><small>Sahumerios importados</small></button>
+        <button class="intent-card" type="button" data-need-category="Sahumadores"><span>🪶</span><strong>¿Necesitás sahumar tu espacio?</strong><small>Sahumadores</small></button>
+        <button class="intent-card" type="button" data-need-category="Cascadas y conitos"><span>〰️</span><strong>¿Querés disfrutar el efecto del humo?</strong><small>Cascadas y conitos</small></button>
+        <button class="intent-card" type="button" data-need-category="Combos Imperdibles!"><span>🎁</span><strong>¿Buscás un regalo especial?</strong><small>Combos y regalos</small></button>
+        <button class="intent-card" type="button" data-need-category="Difusores y aromas"><span>🌸</span><strong>¿Querés que tu casa siempre huela rico?</strong><small>Difusores y aromas</small></button>
+        <button class="intent-card" type="button" data-need-category="Hornillos - velas - aceites"><span>🕯️</span><strong>¿Querés crear un rincón cálido y aromático?</strong><small>Hornillos, velas y aceites</small></button>
+        <button class="intent-card" type="button" data-need-category="Pulseras y colgantes"><span>🧿</span><strong>¿Querés llevar protección con vos?</strong><small>Pulseras y colgantes</small></button>
+        <button class="intent-card" type="button" data-need-category="Duendes"><span>🍄</span><strong>¿Querés sumar un poco de magia a tu casa?</strong><small>Duendes</small></button>
+        <button class="intent-card" type="button" data-need-category="Atrapasoles"><span>☀️</span><strong>¿Querés llenar tu espacio de luz y color?</strong><small>Atrapasoles</small></button>
+        <button class="intent-card" type="button" data-need-category="Cuidado personal"><span>💎</span><strong>¿Buscás algo natural para cuidarte?</strong><small>Cuidado personal</small></button>
       </div>
     </section>
 
@@ -124,11 +131,6 @@
         </select>
       </div>
 
-      <div class="intent-result-note" id="intentResultNote">
-        <span id="intentResultText"></span>
-        <button type="button" id="clearIntent">Volver a ver todo</button>
-      </div>
-
       <div class="product-grid" id="productGrid"></div>
       <div class="empty-state hidden" id="emptyState">
         <h3>No encontramos productos con esos filtros</h3>
@@ -155,35 +157,24 @@
 
     <section class="curated-section" id="ofertas">
       <div class="section-heading">
-        <span class="eyebrow">Elegidos con intención</span>
-        <h2>Ideas para descubrir, regalar y volver a elegir</h2>
+        <span class="eyebrow">Elegidos para descubrir</span>
+        <h2>Algunas ideas para empezar</h2>
+        <p class="section-lead">Productos reales de nuestro catálogo, elegidos según novedades, combos y destacados.</p>
       </div>
 
       <div class="curated-block">
-        <div class="curated-title"><div><h3>Nuestros elegidos</h3><p>Productos destacados de la tienda.</p></div></div>
-        <div class="product-grid curated-grid" id="featuredPicks"></div>
+        <div class="curated-heading"><div><span class="eyebrow">Nuestros elegidos</span><h3>Productos que vale la pena mirar</h3></div></div>
+        <div class="curated-grid" id="featuredGrid"></div>
       </div>
 
       <div class="curated-block">
-        <div class="curated-title"><div><h3>Para regalar</h3><p>Opciones con intención para alguien especial.</p></div></div>
-        <div class="product-grid curated-grid" id="giftPicks"></div>
+        <div class="curated-heading"><div><span class="eyebrow">Para regalar</span><h3>Combos y detalles con intención</h3></div></div>
+        <div class="curated-grid" id="comboGrid"></div>
       </div>
 
       <div class="curated-block">
-        <div class="curated-title"><div><h3>Recién llegados</h3><p>Novedades que se sumaron al catálogo.</p></div></div>
-        <div class="product-grid curated-grid" id="newPicks"></div>
-      </div>
-    </section>
-
-    <section class="moments-section" aria-labelledby="momentos-title">
-      <div class="section-heading">
-        <span class="eyebrow">Historias para inspirarte</span>
-        <h2 id="momentos-title">Hay un producto para cada pequeño momento</h2>
-      </div>
-      <div class="moment-grid">
-        <article class="moment-card"><div class="moment-icon">🌙</div><h3>Un rato para vos</h3><p>Bajar un poco el ritmo, prender un aroma que te guste y hacer del final del día un momento distinto.</p></article>
-        <article class="moment-card"><div class="moment-icon">🎁</div><h3>Un regalo con intención</h3><p>No tiene que ser enorme: a veces un objeto elegido pensando en la otra persona dice mucho más.</p></article>
-        <article class="moment-card"><div class="moment-icon">✨</div><h3>Renovar un espacio</h3><p>Cambiar el aroma, ordenar un rincón y abrir una ventana también puede ser una forma sencilla de empezar de nuevo.</p></article>
+        <div class="curated-heading"><div><span class="eyebrow">Recién llegados</span><h3>Lo nuevo en Suspiros del Alma</h3></div></div>
+        <div class="curated-grid" id="newGrid"></div>
       </div>
     </section>
 
@@ -201,20 +192,35 @@
       </a>
     </section>
 
-    <section class="story story-warm" id="nosotros">
+    <section class="story" id="nosotros">
       <div class="story-image">
         <img src="assets/logo-suspiros.jpg" alt="Suspiros del Alma">
       </div>
       <div>
         <span class="eyebrow">Quiénes somos</span>
-        <h2>Más que un catálogo, un lugar para encontrar algo que te acompañe.</h2>
+        <h2>Una tienda para elegir sin apuro.</h2>
         <p>
-          En Suspiros del Alma nos gusta pensar que cada producto llega por una razón: porque querés cambiar el aroma de tu casa, hacer un regalo, acompañar una intención o simplemente regalarte un pequeño momento.
+          Suspiros del Alma no quiere ser solamente un catálogo. Nos gusta ayudarte a encontrar ese aroma,
+          objeto o pequeño ritual que encaje con el momento que estás viviendo.
         </p>
         <p>
-          Por eso no queremos que compres a ciegas. Si no sabés qué elegir, escribinos. Del otro lado hay una persona que puede orientarte según lo que buscás, tu presupuesto o el tipo de regalo que querés hacer.
+          A veces sabés exactamente qué buscás y otras veces sólo sabés que necesitás calma, renovar un ambiente,
+          hacer un regalo o darte un gusto. En cualquiera de esos casos, podés escribirnos: del otro lado hay una persona.
         </p>
-        <p class="story-signoff">Elegir también puede ser parte del ritual.</p>
+        <a class="btn secondary" href="https://wa.me/5491139384518?text=Hola%20Suspiros%20del%20Alma,%20estuve%20mirando%20la%20tienda%20y%20me%20gustar%C3%ADa%20que%20me%20ayuden%20a%20elegir." target="_blank" rel="noopener">Quiero que me ayuden a elegir</a>
+      </div>
+    </section>
+
+    <section class="inspiration-section">
+      <div class="section-heading">
+        <span class="eyebrow">Momentos que nos inspiran</span>
+        <h2>Pequeñas escenas, grandes pausas</h2>
+        <p class="section-lead">No son testimonios de clientes: son formas posibles de disfrutar y regalar lo que encontrás en la tienda.</p>
+      </div>
+      <div class="inspiration-grid">
+        <article><span>🌙</span><h3>Al final del día</h3><p>Un aroma suave, una luz cálida y unos minutos sin hacer nada más. A veces el ritual es simplemente bajar el ritmo.</p></article>
+        <article><span>🏡</span><h3>Cuando la casa pide aire nuevo</h3><p>Sahumar, abrir una ventana y volver a sentir el espacio propio. Un gesto pequeño que cambia el clima de un ambiente.</p></article>
+        <article><span>🎁</span><h3>Regalar pensando en alguien</h3><p>Elegir por lo que esa persona necesita —calma, protección, alegría o un mimo— hace que un regalo se vuelva mucho más personal.</p></article>
       </div>
     </section>
 
@@ -224,9 +230,9 @@
         <h2>Simple, claro y acompañado</h2>
       </div>
       <div class="steps">
-        <article><b>1</b><h3>Elegí</h3><p>Buscá, filtrá o empezá por lo que necesitás hoy.</p></article>
-        <article><b>2</b><h3>Preguntá</h3><p>Si dudás entre productos, escribinos y te ayudamos.</p></article>
-        <article><b>3</b><h3>Confirmá</h3><p>Armá el pedido y envialo por WhatsApp.</p></article>
+        <article><b>1</b><h3>Elegí</h3><p>Buscá, filtrá y agregá productos al carrito.</p></article>
+        <article><b>2</b><h3>Coordiná</h3><p>Elegí forma de entrega y pago.</p></article>
+        <article><b>3</b><h3>Confirmá</h3><p>Enviá el pedido armado por WhatsApp.</p></article>
         <article><b>4</b><h3>Recibí</h3><p>Coordinamos el envío o punto de encuentro.</p></article>
       </div>
     </section>
@@ -242,7 +248,7 @@
       </article>
       <article>
         <h3>💬 Atención personalizada</h3>
-        <p>No sabés qué elegir? Contanos qué buscás y te orientamos por WhatsApp.</p>
+        <p>Podés consultar cualquier producto por WhatsApp antes de comprar.</p>
       </article>
     </section>
 
@@ -250,15 +256,13 @@
       <div>
         <span class="eyebrow">Novedades y promociones</span>
         <h2>¿Querés que te avisemos cuando entra algo lindo?</h2>
-        <p>Escribinos por WhatsApp y pedinos recibir novedades, ingresos y promociones.</p>
-        <div class="newsletter-actions">
-          <a class="btn primary" href="https://wa.me/5491139384518?text=Hola%20Suspiros%20del%20Alma,%20quiero%20recibir%20novedades,%20nuevos%20ingresos%20y%20promociones." target="_blank" rel="noopener">Quiero recibir novedades</a>
-        </div>
+        <p>Escribinos por WhatsApp y te contamos cuando llegan productos nuevos, promociones o ideas para regalar. Sin formularios y sin vueltas.</p>
+        <a class="btn light" href="https://wa.me/5491139384518?text=Hola%20Suspiros%20del%20Alma,%20quiero%20recibir%20novedades%20y%20promociones%20por%20WhatsApp." target="_blank" rel="noopener">Quiero recibir novedades</a>
       </div>
       <div class="social-links">
         <a href="https://www.instagram.com/suspirosdelalma._/" target="_blank" rel="noopener">Instagram @suspirosdelalma._</a>
         <a href="https://www.tiktok.com/@suspiros.del.alma3" target="_blank" rel="noopener">TikTok @suspiros.del.alma3</a>
-        <a href="https://wa.me/5491139384518?text=Hola%20Suspiros%20del%20Alma,%20estuve%20mirando%20la%20tienda%20y%20me%20gustar%C3%ADa%20que%20me%20ayuden%20a%20elegir." target="_blank" rel="noopener">¿Te ayudamos a elegir?</a>
+        <a href="https://wa.me/5491139384518?text=Hola%20Suspiros%20del%20Alma,%20estuve%20mirando%20la%20tienda%20y%20me%20gustar%C3%ADa%20que%20me%20ayuden%20a%20elegir." target="_blank" rel="noopener">Hablar por WhatsApp</a>
       </div>
     </section>
   </main>
@@ -272,7 +276,7 @@
     <a href="admin.html" class="admin-link">Administración</a>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/5491139384518?text=Hola%20Suspiros%20del%20Alma,%20estuve%20mirando%20la%20tienda%20y%20no%20s%C3%A9%20bien%20qu%C3%A9%20elegir.%20Busco%20algo%20para..." target="_blank" rel="noopener" aria-label="Te ayudamos a elegir por WhatsApp">
+  <a class="whatsapp-float" href="https://wa.me/5491139384518?text=Hola%20Suspiros%20del%20Alma,%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="WhatsApp">
     <span>¿Te ayudo a elegir?</span> 💬
   </a>
 
@@ -310,6 +314,5 @@
 
   <script src="data/products.js"></script>
   <script src="assets/app.js"></script>
-  <script src="assets/conversion.js?v=1"></script>
 </body>
 </html>
