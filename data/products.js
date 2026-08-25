@@ -5,6 +5,7 @@ window.SDA_CATALOG_CONFIG = {
   productsCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRmVrGzFLuB3osIvpJcxWxkgPIGO6pJhxQVXiJaEnWPkNssnXLjIaXz-CfDC2ojHZ2aUM39LUNmMIMG/pub?gid=1733573905&single=true&output=csv",
   variantsCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRmVrGzFLuB3osIvpJcxWxkgPIGO6pJhxQVXiJaEnWPkNssnXLjIaXz-CfDC2ojHZ2aUM39LUNmMIMG/pub?gid=1920172241&single=true&output=csv",
   imagesCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRmVrGzFLuB3osIvpJcxWxkgPIGO6pJhxQVXiJaEnWPkNssnXLjIaXz-CfDC2ojHZ2aUM39LUNmMIMG/pub?gid=996668068&single=true&output=csv",
+  categoriesCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRmVrGzFLuB3osIvpJcxWxkgPIGO6pJhxQVXiJaEnWPkNssnXLjIaXz-CfDC2ojHZ2aUM39LUNmMIMG/pub?gid=1507922801&single=true&output=csv",
   whatsapp: "5491139384518",
   locale: "es-AR",
   currency: "ARS"
@@ -130,7 +131,27 @@ window.SDA_CATALOG_CONFIG = {
           console.warn("Suspiros del Alma: IMAGENES no está disponible; se usarán imágenes principales y variantes.", imageError);
         }
       }
+let categoryRows = [];
+if (CONFIG.categoriesCsv) {
+  try {
+    categoryRows = await fetchCSV(CONFIG.categoriesCsv);
+  } catch (categoryError) {
+    console.warn(
+      "Suspiros del Alma: CATEGORIAS no está disponible; se usará el orden de respaldo.",
+      categoryError
+    );
+  }
+}
 
+window.CATEGORIES = categoryRows
+  .filter(r => yes(r.activa))
+  .map(r => ({
+    id: clean(r.id_categoria),
+    name: clean(r.nombre_categoria),
+    icon: clean(r.icono),
+    order: numberValue(r.orden) ?? 999,
+    active: yes(r.activa)
+  }));
       const variantsByProduct = new Map();
       variantRows.filter(r => yes(r.activo)).forEach(r => {
         const id = clean(r.id_producto);
@@ -215,7 +236,7 @@ window.SDA_CATALOG_CONFIG = {
 
 window.addEventListener('load', () => {
   const CATEGORY_INFO = {
-    "Sahumerios Artesanales": {order:1, icon:"☾", eyebrow:"Explorá nuestras líneas", text:"Sahumerios artesanales de larga duración, aromas intensos y opciones minoristas y mayoristas.", tone:"violet"},
+    "Sahumerios artesanales": {order:1, icon:"☾", eyebrow:"Explorá nuestras líneas", text:"Sahumerios artesanales de larga duración, aromas intensos y opciones minoristas y mayoristas.", tone:"violet"},
     "Pulseras y colgantes": {order:2, icon:"♡", eyebrow:"Explorá la colección", text:"Amuletos, accesorios y colgantes con significado para acompañarte cada día.", tone:"teal"},
     "Cascadas y conitos": {order:3, icon:"〰", eyebrow:"Descubrí la colección", text:"Cascadas de humo y conitos para crear momentos de calma y una ambientación especial.", tone:"sand"},
     "Velas": {order:4, icon:"✦", eyebrow:"Luz y calidez", text:"Velas para iluminar, perfumar y acompañar tus rituales cotidianos.", tone:"rose"},
@@ -225,12 +246,11 @@ window.addEventListener('load', () => {
     "Sahumadores": {order:8, icon:"♨", eyebrow:"Complementos", text:"Sahumadores y accesorios para acompañar tus prácticas de limpieza y aromatización.", tone:"sand"},
     "Atrapasoles": {order:9, icon:"☀", eyebrow:"Luz y color", text:"Objetos decorativos que llenan tus espacios de luz, color y movimiento.", tone:"aqua"},
     "Duendes": {order:10, icon:"♧", eyebrow:"Pequeños encantos", text:"Figuras y objetos con encanto para sumar magia y personalidad a tus espacios.", tone:"rose"},
-    "Sahumerios Importados": {order:11, icon:"✈", eyebrow:"Aromas del mundo", text:"Sahumerios importados y aromas seleccionados de distintas marcas.", tone:"violet"},
-    "Combos Imperdibles!": {order:12, icon:"🎁", eyebrow:"Para aprovechar", text:"Combinaciones especiales para regalar, descubrir productos o aprovechar promociones.", tone:"rose"},
+    "Sahumerios importados": {order:11, icon:"✈", eyebrow:"Aromas del mundo", text:"Sahumerios importados y aromas seleccionados de distintas marcas.", tone:"violet"},
+    "Combos imperdibles!": {order:12, icon:"🎁", eyebrow:"Para aprovechar", text:"Combinaciones especiales para regalar, descubrir productos o aprovechar promociones.", tone:"rose"},
     "Cuidado personal": {order:13, icon:"✧", eyebrow:"Bienestar cotidiano", text:"Productos elegidos para acompañar el cuidado cotidiano de forma simple y natural.", tone:"aqua"}
   };
 
-  const CATEGORY_ORDER = Object.fromEntries(Object.entries(CATEGORY_INFO).map(([name, info]) => [name, info.order]));
 
   if (!document.getElementById('sda-v5-styles')) {
     const style = document.createElement('style');
@@ -293,7 +313,36 @@ window.addEventListener('load', () => {
     const app = await (window.SDA_APP_READY || Promise.resolve(window.SDA));
     const PRODUCTS = window.PRODUCTS || [];
     if (!app || !PRODUCTS.length) return;
+const normalizeCategory = value =>
+  String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
 
+const SHEET_CATEGORIES = window.CATEGORIES || [];
+
+function categoryRowFor(categoryName) {
+  const wanted = normalizeCategory(categoryName);
+
+  return SHEET_CATEGORIES.find(c =>
+    normalizeCategory(c.name) === wanted ||
+    normalizeCategory(c.id) === wanted
+  );
+}
+
+const CATEGORY_ORDER = {};
+
+[...new Set(PRODUCTS.map(p => p.primaryCategory).filter(Boolean))]
+  .forEach(category => {
+    const sheetRow = categoryRowFor(category);
+
+    CATEGORY_ORDER[category] =
+      sheetRow?.order ??
+      CATEGORY_INFO[category]?.order ??
+      999;
+  });
     const productById = new Map(PRODUCTS.map(p => [p.id,p]));
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const timers = new WeakMap();
