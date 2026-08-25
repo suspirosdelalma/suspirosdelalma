@@ -190,6 +190,9 @@ window.SDA_APP_READY = (async () => {
       const headerOffset = 105;
       const y = section.getBoundingClientRect().top + window.scrollY - headerOffset;
       window.scrollTo({top: Math.max(0,y), behavior:'smooth'});
+      document.querySelectorAll('.category-showcase.need-target').forEach(el => el.classList.remove('need-target'));
+      section.classList.add('need-target');
+      window.setTimeout(() => section.classList.remove('need-target'), 1800);
       return true;
     };
 
