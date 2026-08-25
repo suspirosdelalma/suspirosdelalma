@@ -235,21 +235,105 @@ window.CATEGORIES = categoryRows
 })();
 
 window.addEventListener('load', () => {
-  const CATEGORY_INFO = {
-    "Sahumerios artesanales": {order:1, icon:"☾", eyebrow:"Explorá nuestras líneas", text:"Sahumerios artesanales de larga duración, aromas intensos y opciones minoristas y mayoristas.", tone:"violet"},
-    "Pulseras y colgantes": {order:2, icon:"♡", eyebrow:"Explorá la colección", text:"Amuletos, accesorios y colgantes con significado para acompañarte cada día.", tone:"teal"},
-    "Cascadas y conitos": {order:3, icon:"〰", eyebrow:"Descubrí la colección", text:"Cascadas de humo y conitos para crear momentos de calma y una ambientación especial.", tone:"sand"},
-    "Velas": {order:4, icon:"✦", eyebrow:"Luz y calidez", text:"Velas para iluminar, perfumar y acompañar tus rituales cotidianos.", tone:"rose"},
-    "Hornillos - velas - aceites": {order:5, icon:"♨", eyebrow:"Aromas para tus espacios", text:"Hornillos, aceites y complementos para transformar tus espacios con aroma y calidez.", tone:"aqua"},
-    "Aromanza": {order:6, icon:"◉", eyebrow:"Colección por marca", text:"Una selección exclusiva de productos Aromanza.", tone:"aqua"},
-    "Sagrada Madre": {order:7, icon:"✧", eyebrow:"Colección por marca", text:"Productos de Sagrada Madre elegidos para rituales y momentos especiales.", tone:"violet"},
-    "Sahumadores": {order:8, icon:"♨", eyebrow:"Complementos", text:"Sahumadores y accesorios para acompañar tus prácticas de limpieza y aromatización.", tone:"sand"},
-    "Atrapasoles": {order:9, icon:"☀", eyebrow:"Luz y color", text:"Objetos decorativos que llenan tus espacios de luz, color y movimiento.", tone:"aqua"},
-    "Duendes": {order:10, icon:"♧", eyebrow:"Pequeños encantos", text:"Figuras y objetos con encanto para sumar magia y personalidad a tus espacios.", tone:"rose"},
-    "Sahumerios importados": {order:11, icon:"✈", eyebrow:"Aromas del mundo", text:"Sahumerios importados y aromas seleccionados de distintas marcas.", tone:"violet"},
-    "Combos imperdibles!": {order:12, icon:"🎁", eyebrow:"Para aprovechar", text:"Combinaciones especiales para regalar, descubrir productos o aprovechar promociones.", tone:"rose"},
-    "Cuidado personal": {order:13, icon:"✧", eyebrow:"Bienestar cotidiano", text:"Productos elegidos para acompañar el cuidado cotidiano de forma simple y natural.", tone:"aqua"}
-  };
+const CATEGORY_INFO = {
+  "Sahumerios Artesanales": {
+    order: 1, icon: "☾",
+    eyebrow: "Explorá nuestras líneas",
+    text: "Sahumerios artesanales de larga duración, aromas intensos y opciones minoristas y mayoristas.",
+    tone: "violet"
+  },
+
+  "Aromanza": {
+    order: 2, icon: "◉",
+    eyebrow: "Colección Aromanza",
+    text: "Sahumerios y productos Aromanza para aromatizar y armonizar tus espacios.",
+    tone: "aqua"
+  },
+
+  "Sagrada Madre": {
+    order: 3, icon: "✧",
+    eyebrow: "Colección Sagrada Madre",
+    text: "Sahumerios y productos Sagrada Madre para rituales y momentos especiales.",
+    tone: "violet"
+  },
+
+  "Sahumerios importados": {
+    order: 4, icon: "✈",
+    eyebrow: "Aromas del mundo",
+    text: "Sahumerios importados y aromas seleccionados de distintas marcas.",
+    tone: "violet"
+  },
+
+  "Sahumadores": {
+    order: 5, icon: "♨",
+    eyebrow: "Complementos",
+    text: "Sahumadores y accesorios para acompañar tus prácticas de limpieza y aromatización.",
+    tone: "sand"
+  },
+
+  "Cascadas y conitos": {
+    order: 6, icon: "〰",
+    eyebrow: "Descubrí la colección",
+    text: "Cascadas de humo y conitos para crear momentos de calma y una ambientación especial.",
+    tone: "sand"
+  },
+
+  "Combos Imperdibles!": {
+    order: 7, icon: "🎁",
+    eyebrow: "Para aprovechar",
+    text: "Combinaciones especiales para regalar, descubrir productos o aprovechar promociones.",
+    tone: "rose"
+  },
+
+  "Difusores y aromas": {
+    order: 8, icon: "◌",
+    eyebrow: "Aromas para tus espacios",
+    text: "Difusores y aromas para perfumar tus ambientes.",
+    tone: "aqua"
+  },
+
+  "Hornillos - velas - aceites": {
+    order: 9, icon: "♨",
+    eyebrow: "Aromas para tus espacios",
+    text: "Hornillos, aceites y complementos para transformar tus espacios con aroma y calidez.",
+    tone: "aqua"
+  },
+
+  "Pulseras y colgantes": {
+    order: 10, icon: "♡",
+    eyebrow: "Explorá la colección",
+    text: "Amuletos, accesorios y colgantes con significado para acompañarte cada día.",
+    tone: "teal"
+  },
+
+  "Duendes": {
+    order: 11, icon: "♧",
+    eyebrow: "Pequeños encantos",
+    text: "Figuras y objetos con encanto para sumar magia y personalidad a tus espacios.",
+    tone: "rose"
+  },
+
+  "Atrapasoles": {
+    order: 12, icon: "☀",
+    eyebrow: "Luz y color",
+    text: "Objetos decorativos que llenan tus espacios de luz, color y movimiento.",
+    tone: "aqua"
+  },
+
+  "Cuidado personal": {
+    order: 13, icon: "✧",
+    eyebrow: "Bienestar cotidiano",
+    text: "Productos elegidos para acompañar el cuidado cotidiano.",
+    tone: "aqua"
+  },
+
+  "Velas": {
+    order: 14, icon: "✦",
+    eyebrow: "Luz y calidez",
+    text: "Velas para iluminar, perfumar y acompañar tus rituales cotidianos.",
+    tone: "rose"
+  }
+};
 
 
   if (!document.getElementById('sda-v5-styles')) {
