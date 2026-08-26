@@ -1309,10 +1309,11 @@ footer {
     max-width: 390px
   }
 
-  .category-grid,
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr)
-  }
+.category-grid,
+.product-grid,
+.curated-grid {
+  grid-template-columns: repeat(2, 1fr)
+}
 
   .shop-toolbar {
     grid-template-columns: 1fr 1fr
@@ -1404,13 +1405,15 @@ footer {
     padding: 25px
   }
 
-  .category-grid,
-  .product-grid,
-  .highlight-grid,
-  .info-grid,
-  .steps {
-    grid-template-columns: 1fr 1fr
-  }
+.category-section,
+.shop-section,
+.highlight-section,
+.curated-section,
+.story,
+.how-to,
+.related-section {
+  padding: 55px 18px
+}
 
   .category-section,
   .shop-section,
@@ -1562,6 +1565,7 @@ footer {
 
   .category-grid,
   .product-grid,
+  .curated-grid,
   .highlight-grid,
   .info-grid,
   .steps {
