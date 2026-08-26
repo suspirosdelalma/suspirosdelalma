@@ -264,19 +264,13 @@ const CATEGORY_INFO = {
     tone: "violet"
   },
 
-  "Sahumadores": {
-    order: 5, icon: "♨",
-    eyebrow: "Complementos",
-    text: "Sahumadores y accesorios para acompañar tus prácticas de limpieza y aromatización.",
-    tone: "sand"
-  },
-
-  "Cascadas y conitos": {
-    order: 6, icon: "〰",
-    eyebrow: "Descubrí la colección",
-    text: "Cascadas de humo y conitos para crear momentos de calma y una ambientación especial.",
-    tone: "sand"
-  },
+"Sahumadores, cascadas y conitos": {
+  order: 5,
+  icon: "🗻",
+  eyebrow: "Sahumar y ambientar",
+  text: "Sahumadores, cascadas de humo y conitos para limpiar, aromatizar y crear ambientes especiales.",
+  tone: "sand"
+},
 
   "Combos Imperdibles!": {
     order: 7, icon: "🎁",
