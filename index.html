@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="stylesheet" href="assets/inicio.css?v=3">
-  <link rel="stylesheet" href="assets/necesitas-hoy.css?v=2">
+  <link rel="stylesheet" href="assets/necesitas-hoy.css?v=3">
 </head>
 <body>
   <div class="topbar">
@@ -75,22 +75,48 @@
       <div class="section-heading">
         <span class="eyebrow">Empezá por lo que buscás</span>
         <h2>¿Qué necesitás hoy?</h2>
-        <p class="section-lead">Elegí una opción y te llevamos directamente a esa colección. Desde allí podés seguir recorriendo toda la tienda con libertad.</p>
+        <p class="section-lead">Elegí por dónde querés empezar. Para tu espacio, para vos o para alguien especial.</p>
       </div>
-      <div class="intent-grid" id="intentGrid">
-        <button class="intent-card" type="button" data-need-category="Sahumerios Artesanales"><span>🌿</span><strong>¿Querés llenar tu casa de aroma?</strong><small>Sahumerios artesanales</small></button>
-        <button class="intent-card" type="button" data-need-category="Aromanza"><span>✨</span><strong>¿Buscás algo especial para tus rituales?</strong><small>Aromanza</small></button>
-        <button class="intent-card" type="button" data-need-category="Sagrada Madre"><span>🔥</span><strong>¿Querés hacer una limpieza profunda?</strong><small>Sagrada Madre</small></button>
-        <button class="intent-card" type="button" data-need-category="Sahumerios importados"><span>🌏</span><strong>¿Querés descubrir nuevos aromas?</strong><small>Sahumerios importados</small></button>
-        <button class="intent-card" type="button" data-need-category="Sahumadores"><span>🪶</span><strong>¿Necesitás sahumar tu espacio?</strong><small>Sahumadores</small></button>
-        <button class="intent-card" type="button" data-need-category="Cascadas y conitos"><span>〰️</span><strong>¿Querés disfrutar el efecto del humo?</strong><small>Cascadas y conitos</small></button>
-        <button class="intent-card" type="button" data-need-category="Combos Imperdibles!"><span>🎁</span><strong>¿Buscás un regalo especial?</strong><small>Combos y regalos</small></button>
-        <button class="intent-card" type="button" data-need-category="Difusores y aromas"><span>🌸</span><strong>¿Querés que tu casa siempre huela rico?</strong><small>Difusores y aromas</small></button>
-        <button class="intent-card" type="button" data-need-category="Hornillos - velas - aceites"><span>🕯️</span><strong>¿Querés crear un rincón cálido y aromático?</strong><small>Hornillos, velas y aceites</small></button>
-        <button class="intent-card" type="button" data-need-category="Pulseras y colgantes"><span>🧿</span><strong>¿Querés llevar protección con vos?</strong><small>Pulseras y colgantes</small></button>
-        <button class="intent-card" type="button" data-need-category="Duendes"><span>🍄</span><strong>¿Querés sumar un poco de magia a tu casa?</strong><small>Duendes</small></button>
-        <button class="intent-card" type="button" data-need-category="Atrapasoles"><span>☀️</span><strong>¿Querés llenar tu espacio de luz y color?</strong><small>Atrapasoles</small></button>
-        <button class="intent-card" type="button" data-need-category="Cuidado personal"><span>💎</span><strong>¿Buscás algo natural para cuidarte?</strong><small>Cuidado personal</small></button>
+
+      <div class="intent-groups" id="intentGrid">
+        <section class="intent-group intent-group-space" aria-labelledby="intent-space-title">
+          <div class="intent-group-heading">
+            <span class="intent-group-icon" aria-hidden="true">🏡</span>
+            <div>
+              <span class="intent-group-kicker">Tu casa, tu refugio</span>
+              <h3 id="intent-space-title">Para tu espacio</h3>
+              <p>Ideas para aromatizar, ambientar y darle identidad a tu casa.</p>
+            </div>
+          </div>
+          <div class="intent-group-grid">
+            <button class="intent-card" type="button" data-need-category="Sahumerios Artesanales"><span>🌿</span><strong>¿Querés llenar tu casa de aroma?</strong><small>Sahumerios artesanales</small></button>
+            <button class="intent-card" type="button" data-need-category="Sahumerios importados"><span>🌏</span><strong>¿Querés descubrir nuevos aromas?</strong><small>Sahumerios importados</small></button>
+            <button class="intent-card" type="button" data-need-category="Cascadas y conitos"><span>〰️</span><strong>¿Querés disfrutar el efecto del humo?</strong><small>Cascadas y conitos</small></button>
+            <button class="intent-card" type="button" data-need-category="Difusores y aromas"><span>🌸</span><strong>¿Querés que tu casa siempre huela rico?</strong><small>Difusores y aromas</small></button>
+            <button class="intent-card" type="button" data-need-category="Hornillos - velas - aceites"><span>🕯️</span><strong>¿Querés crear un rincón cálido y aromático?</strong><small>Hornillos, velas y aceites</small></button>
+            <button class="intent-card" type="button" data-need-category="Duendes"><span>🍄</span><strong>¿Querés sumar un poco de magia a tu casa?</strong><small>Duendes</small></button>
+            <button class="intent-card intent-card-wide" type="button" data-need-category="Atrapasoles"><span>☀️</span><strong>¿Querés llenar tu espacio de luz y color?</strong><small>Atrapasoles</small></button>
+          </div>
+        </section>
+
+        <section class="intent-group intent-group-self" aria-labelledby="intent-self-title">
+          <div class="intent-group-heading">
+            <span class="intent-group-icon" aria-hidden="true">✨</span>
+            <div>
+              <span class="intent-group-kicker">Bienestar e intención</span>
+              <h3 id="intent-self-title">Para vos y tu energía</h3>
+              <p>Objetos y rituales para acompañarte, protegerte y regalar bienestar.</p>
+            </div>
+          </div>
+          <div class="intent-group-grid">
+            <button class="intent-card" type="button" data-need-category="Aromanza"><span>✨</span><strong>¿Buscás algo especial para tus rituales?</strong><small>Aromanza</small></button>
+            <button class="intent-card" type="button" data-need-category="Sagrada Madre"><span>🔥</span><strong>¿Querés hacer una limpieza profunda?</strong><small>Sagrada Madre</small></button>
+            <button class="intent-card" type="button" data-need-category="Sahumadores"><span>🪶</span><strong>¿Necesitás sahumar tu espacio?</strong><small>Sahumadores</small></button>
+            <button class="intent-card" type="button" data-need-category="Pulseras y colgantes"><span>🧿</span><strong>¿Querés llevar protección con vos?</strong><small>Pulseras y colgantes</small></button>
+            <button class="intent-card" type="button" data-need-category="Cuidado personal"><span>💎</span><strong>¿Buscás algo natural para cuidarte?</strong><small>Cuidado personal</small></button>
+            <button class="intent-card" type="button" data-need-category="Combos Imperdibles!"><span>🎁</span><strong>¿Buscás un regalo especial?</strong><small>Combos y regalos</small></button>
+          </div>
+        </section>
       </div>
     </section>
 
