@@ -1,89 +1,92 @@
 /* =========================================================
-   SUSPIROS DEL ALMA — AJUSTE DE PORTADA / HERO v3
+   SUSPIROS DEL ALMA — AJUSTE DE PORTADA / HERO v4
+   Compacta la portada, agrega "Volver arriba" y un detalle
+   tipo firma grabada en la imagen de "Quiénes somos".
    Se carga DESPUÉS de styles.css y sólo redefine el inicio.
    ========================================================= */
 
 /* Escritorio */
 @media (min-width: 1001px) {
   .hero {
-    min-height: 520px;
-    grid-template-columns: minmax(300px, 390px) minmax(480px, 650px);
+    min-height: 440px;
+    grid-template-columns: minmax(270px, 320px) minmax(460px, 620px);
     grid-template-areas: "visual copy";
     justify-content: center;
     align-items: center;
-    column-gap: clamp(60px, 7vw, 115px);
-    padding: 55px clamp(36px, 6vw, 100px) 62px;
+    column-gap: clamp(44px, 5vw, 82px);
+    padding: 34px clamp(36px, 6vw, 100px) 40px;
   }
 
   .hero-copy {
     grid-area: copy;
     align-self: center;
-    max-width: 650px;
+    max-width: 620px;
   }
 
   .hero-card {
     grid-area: visual;
     justify-self: center;
     align-self: center;
-    width: min(100%, 365px);
-    max-width: 365px;
-    padding: 28px;
-    border-radius: 32px;
+    width: min(100%, 315px);
+    max-width: 315px;
+    padding: 20px;
+    border-radius: 28px;
     background: rgba(255,255,255,.82);
   }
 
   .hero-card img {
     width: 100%;
-    border-radius: 20px;
+    border-radius: 18px;
   }
 
   .hero-card-orbit {
-    inset: -14px;
-    opacity: .75;
+    inset: -11px;
+    opacity: .70;
   }
 
   .hero-card p {
-    margin: 15px auto 0;
-    max-width: 290px;
-    line-height: 1.55;
+    margin: 11px auto 0;
+    max-width: 265px;
+    line-height: 1.45;
+    font-size: 12px;
   }
 
   .hero h1 {
-    font-size: clamp(48px, 4.3vw, 66px);
+    font-size: clamp(44px, 3.8vw, 58px);
     line-height: .98;
-    max-width: 650px;
-    margin: 14px 0 18px;
+    max-width: 620px;
+    margin: 11px 0 14px;
     letter-spacing: -.015em;
   }
 
   .hero p {
     margin: 0;
-    max-width: 610px;
-    font-size: 16px;
-    line-height: 1.65;
+    max-width: 590px;
+    font-size: 15px;
+    line-height: 1.55;
   }
 
   .hero-actions {
-    margin-top: 24px;
+    margin-top: 18px;
   }
 
   .hero-trust {
-    margin-top: 18px;
-    gap: 16px;
+    margin-top: 13px;
+    gap: 14px;
   }
 
   .hero:before {
-    width: 340px;
-    height: 340px;
-    right: -120px;
-    top: -125px;
+    width: 300px;
+    height: 300px;
+    right: -110px;
+    top: -115px;
   }
 
   .hero:after {
-    width: 205px;
-    height: 205px;
-    left: -80px;
-    bottom: -75px;
+    width: 185px;
+    height: 185px;
+    left: -72px;
+    bottom: -70px;
   }
 }
 
@@ -95,8 +98,8 @@
       "copy"
       "visual";
     min-height: auto;
-    gap: 42px;
-    padding: 54px clamp(24px, 7vw, 60px) 60px;
+    gap: 32px;
+    padding: 42px clamp(24px, 7vw, 60px) 46px;
   }
 
   .hero-copy {
@@ -109,15 +112,15 @@
   .hero-card {
     grid-area: visual;
     justify-self: center;
-    width: min(100%, 350px);
-    max-width: 350px;
-    padding: 27px;
+    width: min(100%, 310px);
+    max-width: 310px;
+    padding: 22px;
   }
 
   .hero h1 {
-    font-size: clamp(44px, 7vw, 60px);
+    font-size: clamp(42px, 7vw, 56px);
     line-height: 1;
-    margin: 14px auto 18px;
+    margin: 12px auto 16px;
     max-width: 700px;
   }
 
@@ -136,8 +139,8 @@
 /* Celular */
 @media (max-width: 650px) {
   .hero {
-    gap: 30px;
-    padding: 38px 20px 46px;
+    gap: 24px;
+    padding: 30px 20px 36px;
   }
 
   .hero-copy {
@@ -145,14 +148,14 @@
   }
 
   .hero h1 {
-    font-size: clamp(39px, 11vw, 49px);
+    font-size: clamp(37px, 10.5vw, 47px);
     line-height: 1;
-    margin: 12px 0 16px;
+    margin: 10px 0 14px;
   }
 
   .hero p {
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.55;
   }
 
   .hero-actions,
@@ -161,21 +164,160 @@
   }
 
   .hero-actions {
-    margin-top: 21px;
+    margin-top: 18px;
   }
 
   .hero-trust {
-    margin-top: 16px;
-    gap: 10px 15px;
+    margin-top: 13px;
+    gap: 9px 14px;
   }
 
   .hero-card {
-    width: min(100%, 300px);
-    padding: 20px;
-    border-radius: 27px;
+    width: min(100%, 270px);
+    padding: 18px;
+    border-radius: 25px;
   }
 
   .hero-card-orbit {
-    inset: -10px;
+    inset: -9px;
+  }
+}
+
+/* =========================================================
+   BOTÓN "VOLVER ARRIBA" EN EL CATÁLOGO
+   Se muestra cuando hay una categoría seleccionada.
+   ========================================================= */
+
+.category-back-top-wrap {
+  display: none;
+  justify-content: center;
+  padding: 30px 0 2px;
+}
+
+.category-back-top-wrap.show {
+  display: flex;
+}
+
+.category-back-top {
+  border: 1px solid rgba(79,153,152,.46);
+  background: rgba(255,255,255,.92);
+  color: var(--deep);
+  border-radius: 999px;
+  padding: 10px 17px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(37,63,63,.08);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.category-back-top:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(37,63,63,.12);
+}
+
+/* =========================================================
+   QUIÉNES SOMOS — FIRMA CON EFECTO "LASER-ETCHED"
+   Inspirado en la idea Overdrive: un solo detalle especial,
+   sin agregar dependencias ni comprometer rendimiento.
+   ========================================================= */
+
+.story-image {
+  position: relative;
+  isolation: isolate;
+  box-shadow:
+    inset 0 0 0 1px rgba(55,74,71,.06),
+    0 20px 46px rgba(37,63,63,.09);
+}
+
+.story-image img {
+  position: relative;
+  z-index: 1;
+  border-radius: 24px;
+}
+
+/* Brillo sutil al pasar el mouse, como una luz sobre el grabado */
+.story-image::before {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  z-index: 2;
+  border-radius: 24px;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      105deg,
+      transparent 0%,
+      transparent 43%,
+      rgba(225,255,250,.00) 46%,
+      rgba(225,255,250,.22) 50%,
+      rgba(225,255,250,.00) 54%,
+      transparent 57%,
+      transparent 100%
+    );
+  transform: translateX(-125%);
+  transition: transform .9s cubic-bezier(.22,.75,.22,1);
+}
+
+.story-image:hover::before {
+  transform: translateX(125%);
+}
+
+/* Firma "grabada" sobre la propia imagen */
+.story-image::after {
+  content: "Suspiros del Alma";
+  position: absolute;
+  right: 38px;
+  bottom: 32px;
+  z-index: 3;
+  pointer-events: none;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(27px, 2.25vw, 40px);
+  letter-spacing: .015em;
+  line-height: 1;
+  color: rgba(33,47,45,.28);
+  mix-blend-mode: multiply;
+  transform: rotate(-5deg);
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.58),
+    0 -1px 0 rgba(12,22,20,.22),
+    1px 0 0 rgba(255,255,255,.16);
+  opacity: .86;
+  transition: opacity .25s ease, filter .25s ease;
+}
+
+.story-image:hover::after {
+  opacity: .98;
+  filter: contrast(1.08);
+}
+
+@media (max-width: 650px) {
+  .story-image::after {
+    right: 28px;
+    bottom: 27px;
+    font-size: 27px;
+  }
+
+  .category-back-top-wrap {
+    padding-top: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-image::before,
+  .story-image::after,
+  .category-back-top {
+    transition: none;
+  }
+
+  .story-image::before {
+    display: none;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }

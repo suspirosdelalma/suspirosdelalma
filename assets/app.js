@@ -69,7 +69,7 @@ window.SDA_APP_READY = (async () => {
     }).join("");
     grid.querySelectorAll(".category-card").forEach(el=>el.addEventListener("click",()=>{
       if($("#categoryFilter")) $("#categoryFilter").value=el.dataset.category;
-      filterProducts(); document.querySelector("#productos")?.scrollIntoView();
+      filterProducts(); document.querySelector("#productos")?.scrollIntoView({behavior:"smooth",block:"start"});
     }));
   }
 
@@ -96,6 +96,7 @@ window.SDA_APP_READY = (async () => {
     if($("#resultCount")) $("#resultCount").textContent=`${list.length} productos`;
     $("#emptyState")?.classList.toggle("hidden",list.length>0);
     grid.querySelectorAll(".add-cart").forEach(btn=>btn.addEventListener("click",()=>addToCart(btn.dataset.id)));
+    syncCategoryBackTop();
   }
 
   function maxQty(p){ return p.stock == null ? Number.POSITIVE_INFINITY : Math.max(0,p.stock); }
@@ -184,16 +185,31 @@ window.SDA_APP_READY = (async () => {
         .find(section => normalizeCategory(section.dataset.category) === wanted);
     };
 
+    const filterToCategory = category => {
+      const cf = $("#categoryFilter");
+      if (!cf) return false;
+      const wanted = normalizeCategory(category);
+      const option = [...cf.options].find(o => normalizeCategory(o.value || o.textContent) === wanted);
+      if (!option) return false;
+      cf.value = option.value;
+      filterProducts();
+      document.querySelector("#productos")?.scrollIntoView({behavior:"smooth",block:"start"});
+      return true;
+    };
+
     const goToCategory = category => {
       const section = findCategorySection(category);
-      if (!section) return false;
-      const headerOffset = 105;
-      const y = section.getBoundingClientRect().top + window.scrollY - headerOffset;
-      window.scrollTo({top: Math.max(0,y), behavior:'smooth'});
-      document.querySelectorAll('.category-showcase.need-target').forEach(el => el.classList.remove('need-target'));
-      section.classList.add('need-target');
-      window.setTimeout(() => section.classList.remove('need-target'), 1800);
-      return true;
+      if (section) {
+        const headerOffset = 105;
+        const y = section.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({top: Math.max(0,y), behavior:'smooth'});
+        document.querySelectorAll('.category-showcase.need-target').forEach(el => el.classList.remove('need-target'));
+        section.classList.add('need-target');
+        window.setTimeout(() => section.classList.remove('need-target'), 1800);
+        return true;
+      }
+
+      return filterToCategory(category);
     };
 
     document.querySelectorAll('[data-need-category]').forEach(card => {
@@ -205,10 +221,45 @@ window.SDA_APP_READY = (async () => {
     });
   }
 
+  let categoryBackTopWrap = null;
+
+  function syncCategoryBackTop(){
+    if(!categoryBackTopWrap) return;
+    const hasCategory = Boolean($("#categoryFilter")?.value);
+    categoryBackTopWrap.classList.toggle("show",hasCategory);
+  }
+
+  function setupCategoryBackTop(){
+    const grid=$("#productGrid"), cf=$("#categoryFilter");
+    if(!grid || !cf) return;
+
+    categoryBackTopWrap=document.createElement("div");
+    categoryBackTopWrap.className="category-back-top-wrap";
+    categoryBackTopWrap.innerHTML='<button class="category-back-top" type="button" aria-label="Volver arriba de la página">↑ Volver arriba</button>';
+
+    const anchor=$("#emptyState") || grid;
+    anchor.insertAdjacentElement("afterend",categoryBackTopWrap);
+
+    categoryBackTopWrap.querySelector("button")?.addEventListener("click",()=>{
+      const reduceMotion=window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+      window.scrollTo({top:0,behavior:reduceMotion?"auto":"smooth"});
+    });
+
+    cf.addEventListener("input",syncCategoryBackTop);
+    cf.addEventListener("change",syncCategoryBackTop);
+    $("#categoryGrid")?.addEventListener("click",()=>window.setTimeout(syncCategoryBackTop,0));
+    document.querySelectorAll("[data-need-category]").forEach(card=>{
+      card.addEventListener("click",()=>window.setTimeout(syncCategoryBackTop,30));
+    });
+
+    syncCategoryBackTop();
+  }
+
   renderCart();
   renderCurated();
-  bindNeedNavigation();
   if($("#categoryGrid")){renderCategories();fillFilters();filterProducts();}
+  bindNeedNavigation();
+  setupCategoryBackTop();
   ["#searchInput","#categoryFilter","#brandFilter","#sortFilter"].forEach(s=>$(s)?.addEventListener("input",filterProducts));
   $("#openCart")?.addEventListener("click",openCart);$("#closeCart")?.addEventListener("click",closeCart);
   $("#overlay")?.addEventListener("click",closeCart);$("#keepShopping")?.addEventListener("click",closeCart);
