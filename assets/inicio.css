@@ -187,40 +187,7 @@
   position: relative;
 }
 
-.story-image::after {
-  content: "Suspiros del Alma";
-  position: absolute;
-  right: 24px;
-  bottom: 18px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(20px, 2.2vw, 34px);
-  font-style: italic;
-  letter-spacing: .04em;
-  color: rgba(71, 96, 95, .34);
-  text-shadow:
-    0 1px 0 rgba(255,255,255,.55),
-    0 -1px 0 rgba(28, 40, 40, .08),
-    0 0 10px rgba(255,255,255,.18);
-  pointer-events: none;
-  mix-blend-mode: multiply;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .story-image::after {
-    animation: sdaSignatureGlow 6s ease-in-out infinite;
-  }
-}
-
-@keyframes sdaSignatureGlow {
-  0%, 100% {
-    opacity: .88;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-1px);
-  }
-}
 
 /* Sección Momentos que nos inspiran */
 .inspiration-section {
