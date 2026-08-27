@@ -527,7 +527,7 @@ const CATEGORY_ORDER = {};
             <span class="eyebrow">${info.eyebrow}</span>
             <div class="category-symbol" aria-hidden="true">${info.icon}</div>
             <h3>${related ? 'Productos relacionados' : category}</h3>
-            ${related ? '' : `<p>${info.text}</p><button class="category-link" type="button">Ver esta categoría</button>`}
+            ${related ? '' : `<p>${info.text}</p>`}
           </div>
           <div class="category-showcase-content">
             <div class="type-carousel-controls" aria-label="Controles del carrusel">
@@ -538,13 +538,7 @@ const CATEGORY_ORDER = {};
           </div>`;
         const track = section.querySelector('.type-carousel-track');
         groupCards.forEach(card => track.appendChild(card));
-        section.querySelector('.category-link')?.addEventListener('click',() => {
-          const select = document.querySelector('#categoryFilter');
-          if (!select) return;
-          select.value = category;
-          select.dispatchEvent(new Event('input',{bubbles:true}));
-          document.querySelector('#productos')?.scrollIntoView({behavior:'smooth',block:'start'});
-        });
+
         grid.appendChild(section);
         setupTrack(section);
       });
