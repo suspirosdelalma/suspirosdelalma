@@ -55,7 +55,7 @@ img {
 
 .site-header {
   height: 88px;
-  padding: 12px clamp(18px, 5vw, 70px);
+  padding: 2px clamp(18px, 5vw, 70px);
   display: flex;
   align-items: center;
   gap: 28px;
