@@ -3,7 +3,7 @@
    Las tarjetas navegan a categorías completas; no filtran el catálogo. */
 
 .intent-section {
-  padding: 58px clamp(20px, 5vw, 72px) 66px;
+  padding: 18px clamp(20px, 5vw, 72px) 16px;
   background: linear-gradient(180deg, #fbfafc 0%, #f4f8f7 100%);
   border-bottom: 1px solid rgba(79, 153, 152, .10);
 }
